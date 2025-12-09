@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+:root {
+  /* Dark Theme - Exact colors from your guide */
+  --color-bg-900: #161616;
+  --color-bg-800: #191A17;
+  --color-hero-mid: #282B22;
+  --color-olive-deep: #3B442C;
+  --color-olive-strong: #5D732A;
+  --color-primary: #badd5a;
+  --color-primary-variant: #a9de2d;
+  --color-primary-glow: #D8FD61;
+  --color-badge-cyan: #00B8DB;
+  --color-muted: #9B9B99;
+  --color-muted-cool: #99A1AF;
+  --color-graph-green: #73A914;
+  --color-white: #FFFFFF;
+  
+  /* Mapped to semantic names */
+  --background: var(--color-bg-900);
+  --surface: var(--color-bg-800);
+  --surface-dark: var(--color-hero-mid);
+  --card: var(--color-bg-800);
+  
+  --primary: var(--color-primary);
+  --primary-dark: var(--color-primary-variant);
+  --primary-light: var(--color-primary-glow);
+  --primary-50: rgba(202, 245, 84, 0.06);
+  --primary-100: rgba(202, 245, 84, 0.12);
+  
+  --foreground: var(--color-white);
+  --muted: var(--color-muted);
+  --muted-light: var(--color-muted-cool);
+  
+  --success: var(--color-graph-green);
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --info: var(--color-badge-cyan);
+  
+  --border: rgba(255, 255, 255, 0.06);
+  --border-light: rgba(255, 255, 255, 0.12);
+  
+  --shadow: rgba(0, 0, 0, 0.6);
+  --shadow-lg: rgba(0, 0, 0, 0.8);
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-light: var(--primary-light);
+  --color-primary-50: var(--primary-50);
+  --color-primary-100: var(--primary-100);
+  
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-dark: var(--surface-dark);
+  --color-card: var(--card);
+  
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-light: var(--muted-light);
+  
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --color-info: var(--info);
+  
+  --color-border: var(--border);
+  --color-border-light: var(--border-light);
+  
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hide Scrollbar */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+* {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Mobile Touch Optimizations */
+@media (max-width: 768px) {
+  body {
+    touch-action: manipulation;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  
+  input, textarea, button {
+    -webkit-user-select: auto;
+    user-select: auto;
+  }
+}
+
+/* Smooth transitions for theme changes */
+* {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+/* Loading animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Text stroke utilities for better contrast on neon backgrounds */
+/* .text-stroke-sm {
+  text-shadow: 
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.text-stroke-md {
+  text-shadow: 
+    -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    2px 2px 0 #000,
+    -1px 0 0 #000,
+    1px 0 0 #000,
+    0 -1px 0 #000,
+    0 1px 0 #000;
+} */
